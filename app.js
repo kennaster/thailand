@@ -36,7 +36,7 @@ const PHOTOS = [
 
 const SLOTS_PER_LAYER        = 12;   // slots per layer on desktop
 const SLOTS_PER_LAYER_MOBILE = 6;    // slots per layer on mobile (≤ 600px)
-const POLAROID_WIDTH         = 155;  // px — matches CSS .polaroid width
+const POLAROID_WIDTH         = 200;  // px — matches CSS .polaroid width
 const ROW_HEIGHT             = 210;  // px — vertical spacing between rows
 const LAYER_OFFSET_X         = 15;   // px — each new layer shifts this far right
 const LAYER_OFFSET_Y         = 10;   // px — each new layer shifts this far down
