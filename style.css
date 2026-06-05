@@ -72,9 +72,10 @@ body {
   box-shadow: 2px 4px 14px rgba(0, 0, 0, 0.32);
 }
 
-.thai-flag .flag-red  { flex: 2; background: var(--thai-red); }
-.thai-flag .flag-blue {
-  flex: 3;
+.thai-flag .flag-red   { flex: 1; background: var(--thai-red); }
+.thai-flag .flag-white { flex: 1; background: #ffffff; }
+.thai-flag .flag-blue  {
+  flex: 2;
   background: var(--thai-blue);
   animation: blue-glow 4s ease-in-out infinite;
 }
