@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thailand Countdown</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&family=Space+Mono&family=Caveat&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Hero ──────────────────────────────────────────────── -->
+  <header class="hero">
+    <div class="thai-flag" role="img" aria-label="Thai flag">
+      <div class="flag-red"></div>
+      <div class="flag-blue"></div>
+      <div class="flag-red"></div>
+    </div>
+    <h1 class="hero-title">
+      <span id="days-display">…</span>&thinsp;days until Thailand
+    </h1>
+    <p class="hero-subtitle">Departing <span id="departure-display"></span></p>
+  </header>
+
+  <!-- ── Countdown ─────────────────────────────────────────── -->
+  <section class="countdown-section" aria-label="Countdown timer">
+    <div class="countdown-grid" id="countdown-grid">
+      <div class="countdown-card">
+        <span class="countdown-value" id="days">00</span>
+        <span class="countdown-label">Days</span>
+      </div>
+      <div class="countdown-card">
+        <span class="countdown-value" id="hours">00</span>
+        <span class="countdown-label">Hours</span>
+      </div>
+      <div class="countdown-card">
+        <span class="countdown-value" id="minutes">00</span>
+        <span class="countdown-label">Minutes</span>
+      </div>
+      <div class="countdown-card">
+        <span class="countdown-value" id="seconds">00</span>
+        <span class="countdown-label">Seconds</span>
+      </div>
+    </div>
+    <p class="arrived-message" id="arrived-message">You're in Thailand! 🇹🇭</p>
+  </section>
+
+  <!-- ── Photo Collage Wall ────────────────────────────────── -->
+  <section class="collage-section" aria-label="Photo collage wall">
+    <h2 class="collage-heading">Meanwhile, collecting memories…</h2>
+    <div class="collage-wall" id="collage-wall"></div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
