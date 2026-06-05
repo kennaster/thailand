@@ -30,6 +30,7 @@ const DEPARTURE_DATE = new Date("2026-09-14T13:00:00");
 
 const PHOTOS = [
   { src: "photos/IMG_7731.jpg", caption: "Singha o'clock 🍺" },
+  { src: "photos/IMG_420.JPG", caption: "Orange Juice o'clock" },
 ];
 
 // ── Collage Configuration ─────────────────────────────────────
@@ -41,17 +42,46 @@ const ROW_HEIGHT             = 210;  // px — vertical spacing between rows
 const LAYER_OFFSET_X         = 15;   // px — each new layer shifts this far right
 const LAYER_OFFSET_Y         = 10;   // px — each new layer shifts this far down
 
-// ── Departure date display ────────────────────────────────────
+// ── Translations ──────────────────────────────────────────────
+// To add a new language: duplicate one of these objects, translate the values,
+// and wire up a button. dateLocale controls how the departure date is formatted.
 
-const departureEl = document.getElementById('departure-display');
-if (departureEl) {
-  departureEl.textContent = DEPARTURE_DATE.toLocaleDateString('en-GB', {
-    day: 'numeric', month: 'long', year: 'numeric',
-  });
-}
+const STRINGS = {
+  en: {
+    heroPrefix:     '',
+    heroSuffix:     ' days until Thailand',
+    subtitlePrefix: 'Departing ',
+    labelDays:      'Days',
+    labelHours:     'Hours',
+    labelMinutes:   'Minutes',
+    labelSeconds:   'Seconds',
+    arrived:        "You're in Thailand! 🇹🇭",
+    collageHeading: 'Every photo is a day closer to you, Yuri 🌸',
+    placeholder:    'Photos coming soon — check back after the next trip 📷',
+    toggleBtn:      'ภาษาไทย',
+    dateLocale:     'en-GB',
+  },
+  th: {
+    heroPrefix:     'อีก ',
+    heroSuffix:     ' วัน ก็จะถึงไทยแล้ว',
+    subtitlePrefix: 'วันเดินทาง ',
+    labelDays:      'วัน',
+    labelHours:     'ชั่วโมง',
+    labelMinutes:   'นาที',
+    labelSeconds:   'วินาที',
+    arrived:        'มาถึงไทยแล้ว! 🇹🇭',
+    collageHeading: 'ทุกรูปคือวันที่ใกล้เธอมากขึ้น ยูริ 🌸',
+    placeholder:    'รูปภาพกำลังจะมา — แวะมาดูหลังทริปหน้านะ 📷',
+    toggleBtn:      'English',
+    dateLocale:     'th-TH-u-ca-gregory',  // Gregorian calendar, Thai month names
+  },
+};
 
-// ── Countdown ────────────────────────────────────────────────
+let currentLang = 'en';
 
+// ── DOM References ────────────────────────────────────────────
+
+const departureEl   = document.getElementById('departure-display');
 const daysHeadEl    = document.getElementById('days-display');
 const daysEl        = document.getElementById('days');
 const hoursEl       = document.getElementById('hours');
@@ -59,6 +89,52 @@ const minutesEl     = document.getElementById('minutes');
 const secondsEl     = document.getElementById('seconds');
 const countdownGrid = document.getElementById('countdown-grid');
 const arrivedEl     = document.getElementById('arrived-message');
+const langToggleBtn = document.getElementById('lang-toggle');
+
+// Show departure date immediately in English so there's no blank flash
+// before the load event fires. setLanguage() re-formats it for Thai.
+if (departureEl) {
+  departureEl.textContent = DEPARTURE_DATE.toLocaleDateString('en-GB', {
+    day: 'numeric', month: 'long', year: 'numeric',
+  });
+}
+
+// ── Language Toggle ───────────────────────────────────────────
+
+function setLanguage(lang) {
+  const s = STRINGS[lang] || STRINGS.en;
+  currentLang = lang;
+
+  // Flip html[lang] — CSS uses this attribute to apply Sarabun for Thai.
+  document.documentElement.lang = lang;
+
+  // Swap every element that carries a data-i18n key.
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (key in s) el.textContent = s[key];
+  });
+
+  // Re-format the departure date in the correct locale.
+  if (departureEl) {
+    departureEl.textContent = DEPARTURE_DATE.toLocaleDateString(s.dateLocale, {
+      day: 'numeric', month: 'long', year: 'numeric',
+    });
+  }
+
+  // If the collage placeholder is already rendered, retranslate it.
+  const placeholder = document.querySelector('.collage-placeholder');
+  if (placeholder) placeholder.textContent = s.placeholder;
+
+  localStorage.setItem('lang', lang);
+}
+
+if (langToggleBtn) {
+  langToggleBtn.addEventListener('click', () => {
+    setLanguage(currentLang === 'en' ? 'th' : 'en');
+  });
+}
+
+// ── Countdown ────────────────────────────────────────────────
 
 function pad(n) {
   return String(Math.floor(n)).padStart(2, '0');
@@ -194,7 +270,7 @@ function buildCollage() {
   if (PHOTOS.length === 0) {
     const placeholder = document.createElement('div');
     placeholder.className   = 'collage-placeholder';
-    placeholder.textContent = 'Photos coming soon — check back after the next trip 📷';
+    placeholder.textContent = STRINGS[currentLang].placeholder;
     collageWall.appendChild(placeholder);
     return;
   }
@@ -242,4 +318,8 @@ window.addEventListener('resize', () => {
   resizeTimer = setTimeout(buildCollage, 180);
 });
 
-window.addEventListener('load', buildCollage);
+window.addEventListener('load', () => {
+  const savedLang = localStorage.getItem('lang') || 'en';
+  setLanguage(savedLang);
+  buildCollage();
+});

@@ -269,6 +269,46 @@ body {
 }
 
 /* ============================================================
+   Language Toggle Button
+   ============================================================ */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 1.1rem;
+  padding: 0.38rem 1.25rem;
+  border-radius: 999px;
+  border: 2px solid var(--gold);
+  background: transparent;
+  color: var(--gold);
+  font-family: 'Sarabun', 'Kanit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.lang-toggle:hover,
+.lang-toggle:focus-visible {
+  background: var(--gold);
+  color: var(--ink);
+  outline: none;
+}
+
+/* ============================================================
+   Thai Language Typography
+   ============================================================ */
+html[lang="th"] .hero-title,
+html[lang="th"] .hero-subtitle,
+html[lang="th"] .countdown-label,
+html[lang="th"] .arrived-message,
+html[lang="th"] .collage-heading,
+html[lang="th"] .collage-placeholder,
+html[lang="th"] .lang-toggle {
+  font-family: 'Sarabun', sans-serif;
+}
+
+/* ============================================================
    Responsive — Mobile (≤ 600px)
    ============================================================ */
 @media (max-width: 600px) {

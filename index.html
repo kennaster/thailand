@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&family=Space+Mono&family=Caveat&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&family=Sarabun:wght@400;700&family=Space+Mono&family=Caveat&display=swap"
     rel="stylesheet"
   />
   <link rel="stylesheet" href="style.css" />
@@ -24,9 +24,10 @@
       <div class="flag-red"></div>
     </div>
     <h1 class="hero-title">
-      <span id="days-display">…</span>&thinsp;days until Thailand
+      <span data-i18n="heroPrefix"></span><span id="days-display">…</span><span data-i18n="heroSuffix">&thinsp;days until Thailand</span>
     </h1>
-    <p class="hero-subtitle">Departing <span id="departure-display"></span></p>
+    <p class="hero-subtitle"><span data-i18n="subtitlePrefix">Departing </span><span id="departure-display"></span></p>
+    <button class="lang-toggle" id="lang-toggle" aria-label="Switch language / เปลี่ยนภาษา">ภาษาไทย</button>
   </header>
 
   <!-- ── Countdown ─────────────────────────────────────────── -->
@@ -34,27 +35,27 @@
     <div class="countdown-grid" id="countdown-grid">
       <div class="countdown-card">
         <span class="countdown-value" id="days">00</span>
-        <span class="countdown-label">Days</span>
+        <span class="countdown-label" data-i18n="labelDays">Days</span>
       </div>
       <div class="countdown-card">
         <span class="countdown-value" id="hours">00</span>
-        <span class="countdown-label">Hours</span>
+        <span class="countdown-label" data-i18n="labelHours">Hours</span>
       </div>
       <div class="countdown-card">
         <span class="countdown-value" id="minutes">00</span>
-        <span class="countdown-label">Minutes</span>
+        <span class="countdown-label" data-i18n="labelMinutes">Minutes</span>
       </div>
       <div class="countdown-card">
         <span class="countdown-value" id="seconds">00</span>
-        <span class="countdown-label">Seconds</span>
+        <span class="countdown-label" data-i18n="labelSeconds">Seconds</span>
       </div>
     </div>
-    <p class="arrived-message" id="arrived-message">You're in Thailand! 🇹🇭</p>
+    <p class="arrived-message" id="arrived-message" data-i18n="arrived">You're in Thailand! 🇹🇭</p>
   </section>
 
   <!-- ── Photo Collage Wall ────────────────────────────────── -->
   <section class="collage-section" aria-label="Photo collage wall">
-    <h2 class="collage-heading">Every photo is a day closer to you, Yuri 🌸</h2>
+    <h2 class="collage-heading" data-i18n="collageHeading">Every photo is a day closer to you, Yuri 🌸</h2>
     <div class="collage-wall" id="collage-wall"></div>
   </section>
 
