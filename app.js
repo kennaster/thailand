@@ -29,8 +29,7 @@ const DEPARTURE_DATE = new Date("2026-09-14T13:00:00");
 // Add your photos here. See instructions at the top of this file.
 
 const PHOTOS = [
-  // { src: "photos/beach-2024.jpg", caption: "Koh Lanta, Jan 2024" },
-  // { src: "photos/temple.jpg",     caption: "" },
+  { src: "photos/IMG_7731.jpg", caption: "Singha o'clock 🍺" },
 ];
 
 // ── Collage Configuration ─────────────────────────────────────
