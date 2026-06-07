@@ -33,6 +33,7 @@ const PHOTOS = [
   { src: "photos/IMG_420.JPG", caption: "Orange Juice o'clock" },
   { src: "photos/IMG_7401.jpg", caption: "Painting in the Freedom Sand" },
   { src: "photos/IMG_7403.jpg", caption: "My Babydoll" },
+  { src: "photos/IMG_7459.jpg", caption: "Sleepy Girl" },
 ];
 
 // ── Collage Configuration ─────────────────────────────────────
