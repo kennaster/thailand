@@ -37,6 +37,8 @@ const PHOTOS = [
   { src: "photos/IMG_7572.jpg", caption: "สวยมาก" },
   { src: "photos/IMG_7616.jpg", caption: "My baby coconut <3" },
   { src: "photos/IMG_7622.jpg", caption: "So hot baby!" },
+  { src: "photos/IMG_7637.jpg", caption: "Professional!" },
+
 ];
 
 // ── Collage Configuration ─────────────────────────────────────
