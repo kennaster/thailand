@@ -30,7 +30,9 @@ const DEPARTURE_DATE = new Date("2026-09-14T13:00:00");
 
 const PHOTOS = [
   { src: "photos/IMG_7674.jpg", caption: "Baby, are you okay?" },
+  { src: "photos/IMG_7678.jpg", caption: "I can see for miles, baby!" },
   { src: "photos/IMG_7731.jpg", caption: "Singha o'clock 🍺" },
+  { src: "photos/IMG_7679.JPG", caption: "Twins, actually" },
   { src: "photos/IMG_420.JPG", caption: "Orange Juice o'clock" },
   { src: "photos/IMG_7401.jpg", caption: "Painting in the Freedom Sand" },
   { src: "photos/IMG_7403.jpg", caption: "My Babydoll" },
