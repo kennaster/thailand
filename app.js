@@ -42,6 +42,7 @@ const PHOTOS = [
   { src: "photos/IMG_7622.jpg", caption: "So hot baby!" },
   { src: "photos/IMG_7637.jpg", caption: "Professional!" },
   { src: "photos/IMG_7672.jpg", caption: "My local baby!" },
+   { src: "photos/IMG_7680.jpg", caption: "Sunshine smiles!" },
 
 ];
 
